@@ -1,50 +1,31 @@
-"use client"
+import { redirect } from "next/navigation";
+import { getSession, login } from "@/actions/login";
 
-import React, { useState } from 'react';
-import { useRouter } from "next/navigation";
 
-// import { login } from '@/actions/login';
+export default async function Login() {
+  const session = await getSession();
+  console.log('session', session);
 
-const LoginPage: React.FC = () => {
-    const router = useRouter();
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    
-
-    const submitHandler = (e: React.FormEvent<HTMLFormElement>): void => {
-        e.preventDefault();
-        alert(`Hello ${username} ${password}`);
-
-    }
-
-    return (
-        <section>
-            <h1>LOGIN PAGE</h1>
-            <form onSubmit={submitHandler}>
-                <div>
-                    <label htmlFor="username">Username: </label>
-                    <input
-                    type="text"
-                    id="username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    />
-                </div>
+  return (
+    <section>
+        <h1>LOGIN PAGE</h1>
+        <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '25px'}} >
+            <form
+            action={async (formData) => {
+              "use server";
+              const status = await login(formData);
+              status && redirect("/dashboard");
+            }}
+            >
+                <input type="text" placeholder="username" name="username"/>
                 <br />
-                <div>
-                    <label htmlFor="password">Password: </label>
-                    <input
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
                 <br />
-                <button>Login</button>
+                <input type="text" placeholder="password" name="password"/>
+                <br /> 
+                <br />
+                <button type="submit">Login</button>
             </form>
-        </section>
-    );
-};
-
-export default LoginPage;
+        </div>
+    </section>
+  );
+}

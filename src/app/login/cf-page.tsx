@@ -1,21 +1,24 @@
 import { redirect } from "next/navigation";
 import { getSession, login } from "@/actions/login";
+import LoginPageComponent from "@/components/LoginPage/LoginPageComponent";
 
 
 export default async function Login() {
   const session = await getSession();
-  console.log('session', session);
+  
+  const formAction: any = async (formData:FormData) => {
+    "use server";
+    console.log('MHMHMHMHMHM formData============', formData);
+    const status = await login(formData);
+    status && redirect("/dashboard");
+  }
 
   return (
     <section>
         <h1>LOGIN PAGE</h1>
         <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '25px'}} >
-            <form
-            action={async (formData) => {
-              "use server";
-              const status = await login(formData);
-              status && redirect("/dashboard");
-            }}
+            {/* <form
+            action={formAction}
             >
                 <input type="text" placeholder="username" name="username"/>
                 <br />
@@ -24,7 +27,9 @@ export default async function Login() {
                 <br /> 
                 <br />
                 <button type="submit">Login</button>
-            </form>
+            </form> */}
+
+            <LoginPageComponent submitHandler={formAction} />
         </div>
     </section>
   );
