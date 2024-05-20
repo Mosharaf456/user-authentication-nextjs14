@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 // import { login } from '@/actions/login';
 
-const LoginPage: React.FC = () => {
+const LoginPageComponent: React.FC = () => {
     const router = useRouter();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -47,4 +47,4 @@ const LoginPage: React.FC = () => {
     );
 };
 
-export default LoginPage;
+export default LoginPageComponent;
