@@ -1,8 +1,10 @@
 
-import { getSession, login } from "@/actions/login";
-import LoginServer from './s-copy-working-page';
+import { getSession, login } from "@/app/actions/login";
+import LoginServer from './s-working-page';
+
 
 import LoginPageComponent from "./pageC-is";
+import LoginPageC from "./pageWorkingC";
 
 
 
@@ -18,6 +20,9 @@ export default async function Login() {
           
           {/* But LoginPageComponent is not working as expected */}
           {/* <LoginPageComponent /> */}
+
+          { /*This client components working but error throws on logout  */}
+          {/* <LoginPageC /> */}
 
         </div>
     </section>

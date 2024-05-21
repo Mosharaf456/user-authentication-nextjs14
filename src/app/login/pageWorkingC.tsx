@@ -7,42 +7,31 @@ import { useRouter } from "next/navigation";
 import { loginAction } from "@/actions/login";
 
 
-const LoginPageComponent = () => {
+const LoginPageC = () => {
     
   const [state, formAction] = useFormState<any, FormData>(loginAction, undefined);
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
 
   return (
       <section>
-          {state?.error && <p>{state.error}</p>}
+          
+          {state?.error && <p> {state?.error} </p>}
+
+            <h2>Login</h2>
           <form action={formAction}>
               <div>
                   <label htmlFor="username">Username: </label>
-                  <input
-                  type="text"
-                  // id="username"
-                  name="username"
-                  // value={username}
-                  // onChange={(e) => setUsername(e.target.value)}
-                  />
+                  <input type="text" name="username"/>
               </div>
               <br />
               <div>
                   <label htmlFor="password">Password: </label>
-                  <input
-                  type="password"
-                  // id="password"
-                  name="password"
-                  // value={password}
-                  // onChange={(e) => setPassword(e.target.value)}
-                  />
+                  <input type="password" name="password"/>
               </div>
               <br />
-              <button>Login</button>
+              <button type="submit">LoginA1</button>
           </form>
       </section>
   );
 };
 
-export default LoginPageComponent;
+export default LoginPageC;

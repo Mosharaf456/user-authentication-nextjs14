@@ -11,10 +11,10 @@ export default async function LoginServer() {
         <h1>LOGIN PAGE S</h1>
         <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '25px'}} >
             <form
-              action={async (formData) => {
-                "use server";
-                const data = await login(formData);
-                data.status && redirect("/dashboard");
+                action={async (formData) => {
+                  "use server";
+                  const data = await login(formData);
+                  data.status && redirect("/dashboard");
               }}
             >
                 <input type="text" placeholder="username" name="username"/>
