@@ -24,11 +24,44 @@ export async function decrypt(input: string): Promise<any> {
   return payload;
 }
 
-export const login= async (
+export const login = async (
   formData: FormData
 ) => {
   let username = formData.get("username") as string;
   let password = formData.get("password") as string;
+  const user = { username, role: ['admin'] };
+
+  // Verify credentials && get the user
+  if (username !== 'admin' || password !== '123') {
+    return { status: false, error: "Wrong Credentials"};
+  }
+
+  // Create the session
+  const expires = new Date(Date.now() + 120 * 1000);
+  const session = await encrypt({ user, expires });
+  // Save the session in a cookie
+  cookies().set("session", session, { 
+    expires, 
+    httpOnly: true,
+    // secure: true,
+    // sameSite: 'lax',
+  });
+
+  return { status: true, success: "Login Successfull"};
+}
+interface LoginFormData {
+  username: string;
+  password: string;
+}
+
+export const loginUserAction = async (
+  {username, password}: LoginFormData
+) => {
+  
+  // console.log('21MAY formData==============', formData);
+
+  // let username = formData.get("username") as string;
+  // let password = formData.get("password") as string;
   const user = { username, role: ['admin'] };
 
   // Verify credentials && get the user

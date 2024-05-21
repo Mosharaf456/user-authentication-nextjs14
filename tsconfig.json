@@ -30,6 +30,6 @@
     "src/app/login/s-page backup.tsx",
     "src/app/login/page copy.tsx.back2",
     "src/app/login/page copy.tsx.back1"
-  ],
+, "src/app/login/lastPage.tsx_back"  ],
   "exclude": ["node_modules"]
 }

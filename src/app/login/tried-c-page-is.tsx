@@ -1,3 +1,5 @@
+"use client";
+
 import LoginPageComponent from "@/components/LoginPage/LoginPageComponent";
 
 export default async function Login() {
