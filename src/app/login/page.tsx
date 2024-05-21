@@ -3,8 +3,8 @@ import { getSession, login } from "@/app/actions/login";
 import LoginServer from './s-working-page';
 
 
-import LoginPageComponent from "./pageC-is";
-import LoginPageC from "./pageWorkingC";
+// import LoginPageComponent from "./pageC-is";
+// import LoginPageC from "./pageWorkingC";
 
 
 
