@@ -2,13 +2,13 @@ import { redirect } from "next/navigation";
 import { getSession, login } from "@/actions/login";
 
 
-export default async function Login() {
+export default async function LoginServer() {
   const session = await getSession();
   console.log('session', session);
 
   return (
     <section>
-        <h1>LOGIN PAGE</h1>
+        <h1>LOGIN PAGE S</h1>
         <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '25px'}} >
             <form
               action={async (formData) => {

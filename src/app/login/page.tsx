@@ -1,5 +1,8 @@
-import { redirect } from "next/navigation";
 import { getSession, login } from "@/actions/login";
+import LoginServer from './s-copy-working-page';
+
+import LoginPageComponent from "./pageC-is";
+
 
 
 export default async function Login() {
@@ -8,23 +11,11 @@ export default async function Login() {
 
   return (
     <section>
-        <h1>LOGIN PAGE</h1>
         <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '25px'}} >
-            <form
-              action={async (formData) => {
-                "use server";
-                const data = await login(formData);
-                data.status && redirect("/dashboard");
-              }}
-            >
-                <input type="text" placeholder="username" name="username"/>
-                <br />
-                <br />
-                <input type="text" placeholder="password" name="password"/>
-                <br /> 
-                <br />
-                <button type="submit">Login</button>
-            </form>
+          {/* LoginServer is working */}
+          <LoginServer /> 
+          {/* But LoginPageComponent is not working as expected */}
+          {/* <LoginPageComponent /> */}
         </div>
     </section>
   );

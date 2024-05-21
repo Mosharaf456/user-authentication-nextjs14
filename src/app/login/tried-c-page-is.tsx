@@ -2,7 +2,7 @@
 
 import LoginPageComponent from "@/components/LoginPage/LoginPageComponent";
 
-export default async function Login() {
+export default function Login() {
 
   return (
     <section>
