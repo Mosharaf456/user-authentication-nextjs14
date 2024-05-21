@@ -1,3 +1,4 @@
+
 import { getSession, login } from "@/actions/login";
 import LoginServer from './s-copy-working-page';
 
@@ -14,8 +15,10 @@ export default async function Login() {
         <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '25px'}} >
           {/* LoginServer is working */}
           <LoginServer /> 
+          
           {/* But LoginPageComponent is not working as expected */}
           {/* <LoginPageComponent /> */}
+
         </div>
     </section>
   );

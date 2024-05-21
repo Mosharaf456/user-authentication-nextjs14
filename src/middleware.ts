@@ -19,9 +19,5 @@ export async function middleware(request: NextRequest) {
         console.log('middleware error ***********', e);
         return NextResponse.redirect(new URL('/login' , request.url));
     }
+
 }
-
-const config = {
-    middleware,
-};
-
