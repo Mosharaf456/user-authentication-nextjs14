@@ -1,10 +1,8 @@
 import { redirect } from "next/navigation";
-import { getSession, login } from "@/actions/login";
+import { login } from "@/actions/login";
 
 
 export default async function LoginServer() {
-  const session = await getSession();
-  console.log('session', session);
 
   return (
     <section>
