@@ -29,13 +29,11 @@ export const login= async (
 ) => {
   let username = formData.get("username") as string;
   let password = formData.get("password") as string;
-  // username = username.toString().trim();
-  // password = password.toString().trim();
   const user = { username, role: ['admin'] };
 
   // Verify credentials && get the user
   if (username !== 'admin' || password !== '123') {
-    return false;
+    return { status: false, error: "Wrong Credentials"};
   }
 
   // Create the session
@@ -49,7 +47,7 @@ export const login= async (
     // sameSite: 'lax',
   });
 
-  return true;
+  return { status: true, success: "Login Successfull"};
 }
 
 export const loginAction = async (
@@ -77,30 +75,32 @@ export const loginAction = async (
   cookies().set("session", session, { 
     expires, 
     httpOnly: true,
-    // secure: true,
-    // sameSite: 'lax',
+    secure: true,
+    sameSite: 'lax',
   });
 
   redirect("/dashboard");
-  // return { error: "Success" };
 }
 
 
 export async function logoutAction() {
   try {
-    const cookieStore = cookies();
-    const hasSessionCookie = cookieStore.has('session');
-    if(!hasSessionCookie) return null;
-
-    const getCookies =  cookies();
-    getCookies.set('session','');
-
+    const cookieStore =  cookies();
+    cookieStore.set('session', '', { expires: new Date(0)});
+    console.log('logout successfull 21 May 2024');
+    
+    redirect("/login");
   } catch(e) {
     console.log('error ***********', e);
-    const getCookies =  cookies();
-    getCookies.set('session','');
   }
 }
+export const logout = async () => {
+  const cookieStore =  cookies();
+  cookieStore.set('session', '', { expires: new Date(0)});
+  console.log('logout successfull 21 May 2024=============');
+  
+  redirect("/login");
+};
 
 export async function getSession() {
   const cookieStore = cookies();
