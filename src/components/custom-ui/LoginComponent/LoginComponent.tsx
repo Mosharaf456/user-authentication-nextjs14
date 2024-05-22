@@ -6,6 +6,7 @@ import { z } from "zod"
 import { useRouter } from 'next/navigation'
 
 import { Button } from "@/components/ui/button"
+import { loginUserAction } from "@/app/actions/lib";
 import {
   Form,
   FormControl,
@@ -16,7 +17,8 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { loginUserAction } from "@/app/actions/lib";
+import { Label } from "@/components/ui/label"
+import { Checkbox } from "@/components/ui/checkbox"
 
 const formSchema = z.object({
   username: z.string().min(3, {
@@ -57,8 +59,21 @@ export default function LoginComponent() {
               <FormControl>
                 <Input placeholder="Username" {...field} />
               </FormControl>
-              <FormDescription>
-                remember me
+              
+              <FormDescription  className="flex items-center space-x-2">
+                    <Checkbox id="terms" />
+                    <label
+                      htmlFor="terms"
+                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    >
+                      Remember me
+                    </label>
+                    <label
+                      htmlFor="terms"
+                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    >
+                      Forget Password
+                    </label>
               </FormDescription>
               <FormMessage />
             </FormItem>
