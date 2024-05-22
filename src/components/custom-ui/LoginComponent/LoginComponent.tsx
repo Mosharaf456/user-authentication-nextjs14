@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { z } from "zod"
+import { useRouter } from 'next/navigation'
 
 import { Button } from "@/components/ui/button"
 import {
@@ -15,6 +16,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { loginUserAction } from "@/app/actions/lib";
 
 const formSchema = z.object({
   username: z.string().min(3, {
@@ -28,11 +30,18 @@ interface FormValues {
 }
 
 export default function LoginComponent() {
+    const Router = useRouter();
+
     const form = useForm<FormValues>({
         resolver: zodResolver(formSchema),
     })
     const onSubmit: SubmitHandler<FormValues> = async (data) => {
         console.log(data);
+        const response = await loginUserAction(data);
+        console.log('22MAY response==============', response);
+        if(response.status){
+            Router.push('/dashboard');
+        }
     };
 
 
