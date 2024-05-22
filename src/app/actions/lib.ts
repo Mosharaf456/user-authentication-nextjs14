@@ -8,6 +8,7 @@ import { redirect } from "next/navigation";
 
 const secretKey = process.env.SESSION_SECRET;
 const key = new TextEncoder().encode(secretKey);
+console.log('key ***********', key);
 
 export async function encrypt(payload: any) {
   return await new SignJWT(payload)
