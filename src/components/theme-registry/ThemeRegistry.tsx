@@ -313,7 +313,7 @@ export default function ThemeRegistry({ children } : { children: React.ReactNode
     []
   );
 
-//   const theme = useMemo(() => (mode === 'light' ? lightTheme : darkTheme), [mode]);
+  // const theme = useMemo(() => (mode === 'light' ? lightTheme : darkTheme), [mode]);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
 
 
