@@ -1,0 +1,6 @@
+
+npx inbstall create-next-app@latest AGCGMonitoringPanel
+npm install @mui/icons-material
+npm install @mui/material @emotion/react @emotion/styled
+npm i jose
+
