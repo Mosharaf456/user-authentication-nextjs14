@@ -250,9 +250,9 @@ export default function LoginComponent() {
                                 </Grid>
                                 <Grid container></Grid>
                                 <Grid item xs={12}>
-                                    <Box display='flex' justifyContent='space-between'>
-                                        <FormControlLabel control={<Checkbox defaultChecked sx={{}} />} label="Remember me" />
-                                        <Link href='/forgot-password' variant='body2' sx={{paddingTop: 1, color:'black', fontFamily: 'Roboto, regular', fontWeight: 500,  textDecoration: 'none', fontSize: '14px'}}>
+                                    <Box display='flex' justifyContent='space-between' sx={{ color: "black" }}>
+                                        <FormControlLabel control={<Checkbox defaultChecked  color="secondary" />} label="Remember me" />
+                                        <Link href='/forgot-password' variant='body2' sx={{paddingTop: 1.2, color: "#17202A", fontWeight: 500,  textDecoration: 'none', fontSize: '14px'}}>
                                             Forget Password
                                         </Link>
                                     </Box>
@@ -262,7 +262,7 @@ export default function LoginComponent() {
                                 type='submit'
                                 fullWidth
                                 variant='contained'
-                                sx={{ mt: 3, mb: 2, textDecoration: 'capitalize' }}
+                                sx={{ mt: 3, mb: 2, textDecoration: 'capitalize', fontWeight:'bold' }}
                                 size='medium'
                             >
                                 <Stack spacing={1} direction='row' alignItems='center'>

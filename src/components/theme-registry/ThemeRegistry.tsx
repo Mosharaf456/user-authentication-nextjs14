@@ -65,7 +65,7 @@ export const tokens = (mode : any) => ({
                 200: '#f5f5f5',
                 300: '#3d3d3d',
                 500: '#666666',
-                700: '#a3a3a3',
+                700: '#17202A',
                 900: '#e7e7e7',
             },
             primary: {
@@ -200,7 +200,7 @@ export const themeSettings = (mode: any) => {
                         main: colors.blueAccent[800], // Changed with background main
                     },
                     secondary: {
-                        main: colors.greenAccent[500],
+                        main: colors.grey[700],
                     },
                     text: {
                         main: colors.whiteAccent[100],
@@ -267,38 +267,38 @@ export const themeSettings = (mode: any) => {
                 }),
         },
         typography: {
-            fontFamily: ['Roboto', 'regular'].join(','),
+            fontFamily: ['Roboto', 'sans-serif'].join(','),
             fontSize: 13,
             h1: {
-                fontFamily: ['Roboto', 'regular'].join(','),
+                fontFamily: ['Roboto', 'sans-serif'].join(','),
                 fontSize: 30,
             },
             h2: {
-                fontFamily: ['Roboto', 'regular'].join(','),
+                fontFamily: ['Roboto', 'sans-serif'].join(','),
                 fontSize: 26,
             },
             h3: {
-                fontFamily: ['Roboto', 'regular'].join(','),
+                fontFamily: ['Roboto', 'sans-serif'].join(','),
                 fontSize: 22,
             },
             h4: {
-                fontFamily: ['Roboto', 'regular'].join(','),
+                fontFamily: ['Roboto', 'sans-serif'].join(','),
                 fontSize: 18,
             },
             h5: {
-                fontFamily: ['Roboto', 'regular'].join(','),
+                fontFamily: ['Roboto', 'sans-serif'].join(','),
                 fontSize: 16,
             },
             h6: {
-                fontFamily: ['Roboto', 'regular'].join(','),
+                fontFamily: ['Roboto', 'sans-serif'].join(','),
                 fontSize: 14,
             },
             h7: {
-                fontFamily: ['Roboto', 'regular'].join(','),
+                fontFamily: ['Roboto', 'sans-serif'].join(','),
                 fontSize: 12,
             },
             h8: {
-                fontFamily: ['Roboto', 'regular'].join(','),
+                fontFamily: ['Roboto', 'sans-serif'].join(','),
                 fontSize: 10,
             },
         },
