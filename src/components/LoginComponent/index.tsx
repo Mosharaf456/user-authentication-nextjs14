@@ -197,10 +197,10 @@ export default function LoginComponent() {
                 }}
             >
                 <Box sx={{
-                    p:0.4,
-                    borderRadius:4,
-                    overflow:"hidden",
-                    background:" linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(34,94,150,0.9023984593837535) 65%, rgba(34,94,150,1) 100%)"
+                        p:0.4,
+                        borderRadius:4,
+                        overflow:"hidden",
+                        background:" linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(34,94,150,0.9023984593837535) 65%, rgba(34,94,150,1) 100%)"
                     }}>
                     <Box
                         sx={{
