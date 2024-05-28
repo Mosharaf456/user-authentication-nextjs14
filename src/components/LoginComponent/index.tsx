@@ -110,6 +110,7 @@ export default function LoginComponent() {
 
     const handleSubmit = async (event : React.FormEvent) => {
         event.preventDefault();
+        console.log('values', values);
         const { valid, newErrors } = validateForm();
         // if (valid) {
         //     setLoading(true);
@@ -203,7 +204,7 @@ export default function LoginComponent() {
                 >
                     {/* <Logo /> */}
                     <Typography component='h1' variant='h5' m={3} sx={{ textAlign: 'center' }}>
-                        Login
+                        AGCG Login
                     </Typography>
                     <Box component='form' noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                         <Grid container spacing={2}>
