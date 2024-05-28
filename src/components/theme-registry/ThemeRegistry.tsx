@@ -2,6 +2,7 @@
 
 import React, { useMemo, useState, useEffect, createContext, useContext } from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
+import { lightTheme, darkTheme } from "@/components/theme/theme";
 
 import { createTheme } from '@mui/material/styles';
 
@@ -36,7 +37,9 @@ export const tokens = (mode : any) => ({
                 1300: "#ff0000",
             },
             blueAccent: {
+                300: '#cbd5e3', // agcg light blue
                 500: '#6870fa',
+                800: '#1B689D',
                 1000: '#0A2558',
                 1100: '#2697FF', // light blue for search button
                 1200: '#176BA0',
@@ -84,10 +87,12 @@ export const tokens = (mode : any) => ({
                 1300: "#ff0000",
             },
             blueAccent: {
+                300: '#cbd5e3', // agcg light blue
                 500: '#6870fa',
+                800: '#1B689D', // button
                 1000: '#0A2558',
-                1100: '#1a428d', // light blue for search button
-                1200: '#001491',
+                1100: '#2697FF', // light blue for search button
+                1200: '#176BA0',
                 1300: '#6b86b8',
                 1400: '#c8d9f9',
                 1500: '#7b96c7',
@@ -151,7 +156,7 @@ export const themeSettings = (mode: any) => {
                     button: {
                         // primary: colors.primary[1000],
                         // secondary: colors.blueAccent[1100]
-                        primary: colors.blueAccent[1300],
+                        primary: colors.blueAccent[800],
                         secondary: colors.blueAccent[1500],
                         danger: colors.redAccent[500],
                     },
@@ -190,9 +195,9 @@ export const themeSettings = (mode: any) => {
                     }
                 }
                 : {
-                    // palette values for LIGHT mode
+                                        
                     primary: {
-                        main: colors.blueAccent[1000], // Changed with background main
+                        main: colors.blueAccent[800], // Changed with background main
                     },
                     secondary: {
                         main: colors.greenAccent[500],
@@ -221,7 +226,7 @@ export const themeSettings = (mode: any) => {
                         transBlue: colors.blueAccent[2000],
                     },
                     button: {
-                        primary: colors.blueAccent[1000], // Same as backfround.main
+                        primary: colors.blueAccent[800], // Same as backfround.main
                         secondary: colors.blueAccent[1100], // Same as backfround.main
                         danger: colors.redAccent[500],
                     },
@@ -261,38 +266,38 @@ export const themeSettings = (mode: any) => {
                 }),
         },
         typography: {
-            fontFamily: ['Poppins', 'sans-serif'].join(','),
-            fontSize: 12,
+            fontFamily: ['Roboto', 'regular'].join(','),
+            fontSize: 13,
             h1: {
-                fontFamily: ['Poppins', 'sans-serif'].join(','),
+                fontFamily: ['Roboto', 'regular'].join(','),
                 fontSize: 30,
             },
             h2: {
-                fontFamily: ['Poppins', 'sans-serif'].join(','),
+                fontFamily: ['Roboto', 'regular'].join(','),
                 fontSize: 26,
             },
             h3: {
-                fontFamily: ['Poppins', 'sans-serif'].join(','),
+                fontFamily: ['Roboto', 'regular'].join(','),
                 fontSize: 22,
             },
             h4: {
-                fontFamily: ['Poppins', 'sans-serif'].join(','),
+                fontFamily: ['Roboto', 'regular'].join(','),
                 fontSize: 18,
             },
             h5: {
-                fontFamily: ['Poppins', 'sans-serif'].join(','),
+                fontFamily: ['Roboto', 'regular'].join(','),
                 fontSize: 16,
             },
             h6: {
-                fontFamily: ['Poppins', 'sans-serif'].join(','),
+                fontFamily: ['Roboto', 'regular'].join(','),
                 fontSize: 14,
             },
             h7: {
-                fontFamily: ['Poppins', 'sans-serif'].join(','),
+                fontFamily: ['Roboto', 'regular'].join(','),
                 fontSize: 12,
             },
             h8: {
-                fontFamily: ['Poppins', 'sans-serif'].join(','),
+                fontFamily: ['Roboto', 'regular'].join(','),
                 fontSize: 10,
             },
         },
@@ -313,7 +318,7 @@ export default function ThemeRegistry({ children } : { children: React.ReactNode
     []
   );
 
-  // const theme = useMemo(() => (mode === 'light' ? lightTheme : darkTheme), [mode]);
+//   const theme = useMemo(() => (mode === 'light' ? lightTheme : darkTheme), [mode]);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
 
 

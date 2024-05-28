@@ -16,7 +16,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
 
-// import Logo from '../../components/Logo';
+import Logo from '@/ui/Logo/Logo';
 // import { useNavigate } from 'react-router-dom';
 // import { validateEmail } from '../../utils/validation';
 // import { axiosClient } from '../../utils/axios-client';
@@ -28,6 +28,7 @@ import { Stack } from '@mui/system';
 // import { useDispatch } from 'react-redux';
 // import { addUser } from '../../store/user';
 import InputPasswordField from '@/ui/InputFields/InputPasswordField';
+import InputUsernameField from '@/ui/InputFields/InputUsernameField';
 // import { getpermittedMonitorPatients, resolveMonitorPatient } from '../../utils/api';
 // import { setTokenInLocalStorage } from '../../utils/tokens';
 
@@ -200,24 +201,26 @@ export default function LoginComponent() {
                         p: 3,
                         boxShadow:
                             'rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px',
+                        borderRadius: '10px',
+                        paddingTop: '50px',
+                        paddingBottom: '50px',
+                        paddingLeft: '50px',
+                        paddingRight: '50px',
                     }}
                 >
-                    {/* <Logo /> */}
-                    <Typography component='h1' variant='h5' m={3} sx={{ textAlign: 'center' }}>
-                        AGCG Login
-                    </Typography>
+                    <Logo />
                     <Box component='form' noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                         <Grid container spacing={2}>
                             <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
+                                <InputUsernameField 
                                     id='email'
                                     label='Username'
-                                    name='email'
                                     autoComplete='email'
+                                    name='email'
                                     size='small'
-                                    onChange={(e) =>
+                                    type='email'
+                                    value={values.email}
+                                    handleChange={(e : React.ChangeEvent<HTMLInputElement>) =>
                                         setValues({ ...values, email: e.target.value.trim() })
                                     }
                                     error={!!errors.email}
@@ -225,21 +228,6 @@ export default function LoginComponent() {
                                 />
                             </Grid>
                             <Grid item xs={12}>
-                                {/* <TextField
-                                    required
-                                    fullWidth
-                                    id='password'
-                                    label='Password'
-                                    name='password'
-                                    autoComplete='password'
-                                    size='small'
-                                    onChange={(e) =>
-                                        setValues({ ...values, pass: e.target.value })
-                                    }
-                                    error={!!errors.email}
-                                    helperText={errors.email}
-                                /> */}
-                              
                                 <InputPasswordField
                                     id='password'
                                     label='Password'
@@ -258,8 +246,8 @@ export default function LoginComponent() {
                                 <Box display='flex' justifyContent='space-between'>
                                         
                                     <FormControlLabel control={<Checkbox defaultChecked />} label="Remember me" />
-                                    <Link href='/forgot-password' variant='body2' sx={{paddingTop: 1}}>
-                                        Forgotten Password
+                                    <Link href='/forgot-password' variant='body2' sx={{paddingTop: 1, color:'black', fontFamily: 'robot', fontWeight: 500,  textDecoration: 'none', fontSize: '14px'}}>
+                                        Forget Password
                                     </Link>
                                 </Box>
                             </Grid>
@@ -269,7 +257,7 @@ export default function LoginComponent() {
                             fullWidth
                             variant='contained'
                             sx={{ mt: 3, mb: 2, textDecoration: 'capitalize' }}
-                            size='small'
+                            size='medium'
                         >
                             <Stack spacing={1} direction='row' alignItems='center'>
                                 <span>Login</span>

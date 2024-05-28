@@ -8,7 +8,7 @@ import LockIcon from '@mui/icons-material/Lock';
 interface InputPasswordFieldProps {
     id: string;
     value: string;
-    label?: string;
+    label: string;
     size?: TextFieldProps['size'];
     name: string;
     variant?: TextFieldProps['variant'];
@@ -62,12 +62,24 @@ const InputPasswordField: React.FC<InputPasswordFieldProps> = ({
           error={error}
           helperText={helperText}
           placeholder = {placeholder? placeholder : 'Password'}
-          sx={{ gridColumn: `span ${span}`, backgroundColor: "background.default" }}
+          sx={{ gridColumn: `span ${span}` }}
           InputProps={{
             readOnly: inputProps,
+            endAdornment: (
+              <InputAdornment position='end'>
+                <IconButton
+                  aria-label='toggle password visibility'
+                  onClick={() => setShow((show) => !show)}
+                  onMouseDown={(e) => e.preventDefault()}
+                  edge='end'
+                >
+                  {show ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            ),
             startAdornment: (
               <InputAdornment position='start'>
-                <LockIcon fontSize="medium"/>
+                <LockIcon />
               </InputAdornment>
           ),
           }}
