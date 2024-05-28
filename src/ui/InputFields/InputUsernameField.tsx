@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, IconButton, InputAdornment, TextFieldProps } from '@mui/material';
+import { TextField, InputAdornment, TextFieldProps } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
@@ -11,7 +11,6 @@ interface InputUsernameFieldProps {
     label?: string;
     type: string;
     size?: TextFieldProps['size'];
-    autoComplete?: string;
     name: string;
     variant?: TextFieldProps['variant'];
     color?: TextFieldProps['color'];
@@ -32,11 +31,10 @@ const InputUsernameField: React.FC<InputUsernameFieldProps> = ({
     type,
     size = 'medium',
     name,
-    variant = 'outlined',
-    color = 'primary',
+    variant = 'standard',
+    // color = 'primary',
     span = 4,
     handleBlur,
-    autoComplete,
     handleChange,
     error = false,
     helperText,
@@ -53,10 +51,9 @@ const InputUsernameField: React.FC<InputUsernameFieldProps> = ({
           required
           id={id}
           disabled={disabled}
-          color={color}
+          // color={color}
           size={size}
-          variant={variant}
-          autoComplete={autoComplete}
+          variant="standard"
           type={type}
           // label={label}
           onBlur={handleBlur}
@@ -66,19 +63,31 @@ const InputUsernameField: React.FC<InputUsernameFieldProps> = ({
           error={error}
           helperText={helperText}
           placeholder = {placeholder? placeholder : 'Username'}
-          sx={{ gridColumn: `span ${span}` }}
+          
+          sx={{ gridColumn: `span ${span}`, 
+                backgroundColor: "background.primary", color: "text.main", border:"2px solid white",
+               }}
+          inputProps={{ 
+            sx: {
+              padding: '0px',
+              color: '#ffffff',
+              '&::placeholder': {
+                  color: '#ffffff',
+                  opacity: 1, // otherwise firefox shows a lighter color
+              },
+            } 
+          }}
           InputProps={{
+            sx: {
+              p: 1,
+            },
+            disableUnderline: true,
             readOnly: inputProps,
             startAdornment: (
               <InputAdornment position='start'>
-                <PermIdentityIcon fontSize="medium" sx={{  borderRadius: '50%' }} />
-
+                <PermIdentityIcon fontSize="medium" style={{ color: "white"}} />
               </InputAdornment>
             ),
-          }}
-          InputLabelProps={{
-            shrink: value ? true : undefined, // Ensures label shrinks when there's a value
-            style: { marginLeft: 30 }
           }}
         />
       </React.Fragment>

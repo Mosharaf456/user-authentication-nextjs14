@@ -89,10 +89,10 @@ export const tokens = (mode : any) => ({
             blueAccent: {
                 300: '#cbd5e3', // agcg light blue
                 500: '#6870fa',
-                800: '#1B689D', // button
+                800: '#1B689D', // button color
                 1000: '#0A2558',
                 1100: '#2697FF', // light blue for search button
-                1200: '#176BA0',
+                1200: '#5A7B96',
                 1300: '#6b86b8',
                 1400: '#c8d9f9',
                 1500: '#7b96c7',
@@ -215,7 +215,8 @@ export const themeSettings = (mode: any) => {
                         light: colors.grey[100],
                     },
                     background: {
-                        default: colors.whiteAccent[300], // This is working as outer color
+                        default: colors.blueAccent[300], // This is working as outer color
+                        primary: colors.blueAccent[1200],
                         main: colors.blueAccent[1000],
                         outer: colors.whiteAccent[300],
                         inner: colors.whiteAccent[100],

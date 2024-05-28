@@ -196,83 +196,83 @@ export default function LoginComponent() {
                     minHeight: '100vh',
                 }}
             >
-                <Box
-                    sx={{
-                        p: 3,
-                        boxShadow:
-                            'rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px',
-                        borderRadius: '10px',
-                        paddingTop: '50px',
-                        paddingBottom: '50px',
-                        paddingLeft: '50px',
-                        paddingRight: '50px',
-                    }}
-                >
-                    <Logo />
-                    <Box component='form' noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-                        <Grid container spacing={2}>
-                            <Grid item xs={12}>
-                                <InputUsernameField 
-                                    id='email'
-                                    label='Username'
-                                    autoComplete='email'
-                                    name='email'
-                                    size='small'
-                                    type='email'
-                                    value={values.email}
-                                    handleChange={(e : React.ChangeEvent<HTMLInputElement>) =>
-                                        setValues({ ...values, email: e.target.value.trim() })
-                                    }
-                                    error={!!errors.email}
-                                    helperText={errors.email}
-                                />
+                <Box sx={{
+                    p:0.4,
+                    borderRadius:4,
+                    overflow:"hidden",
+                    background:" linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(34,94,150,0.9023984593837535) 65%, rgba(34,94,150,1) 100%)"
+                    }}>
+                    <Box
+                        sx={{
+                            p: 3,
+                            boxShadow:
+                                'rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px',
+                            borderRadius: 4,
+                            paddingTop: '50px',
+                            paddingBottom: '50px',
+                            paddingLeft: '50px',
+                            paddingRight: '50px',
+                            background: "linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(174,196,217,1) 100%)"
+
+                        }}
+                    >
+                        <Logo />
+                        <Box component='form' noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+                            <Grid container spacing={2}>
+                                <Grid item xs={12}>
+                                    <InputUsernameField 
+                                        id='username'
+                                        label='Username'
+                                        name='username'
+                                        size='small'
+                                        type='email'
+                                        value={values.email}
+                                        handleChange={(e : React.ChangeEvent<HTMLInputElement>) =>
+                                            setValues({ ...values, email: e.target.value.trim() })
+                                        }
+                                        error={!!errors.email}
+                                        helperText={errors.email}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <InputPasswordField
+                                        id='password'
+                                        label='Password'
+                                        name='password'
+                                        size='small'
+                                        value={values.pass}
+                                        handleChange={(e : React.ChangeEvent<HTMLInputElement>) =>
+                                            setValues({ ...values, pass: e.target.value })
+                                        }
+                                        error={!!errors.pass}
+                                        helperText={errors.pass}
+                                    />
+                                </Grid>
+                                <Grid container></Grid>
+                                <Grid item xs={12}>
+                                    <Box display='flex' justifyContent='space-between'>
+                                        <FormControlLabel control={<Checkbox defaultChecked sx={{}} />} label="Remember me" />
+                                        <Link href='/forgot-password' variant='body2' sx={{paddingTop: 1, color:'black', fontFamily: 'Roboto, regular', fontWeight: 500,  textDecoration: 'none', fontSize: '14px'}}>
+                                            Forget Password
+                                        </Link>
+                                    </Box>
+                                </Grid>
                             </Grid>
-                            <Grid item xs={12}>
-                                <InputPasswordField
-                                    id='password'
-                                    label='Password'
-                                    name='password'
-                                    size='small'
-                                    value={values.pass}
-                                    handleChange={(e : React.ChangeEvent<HTMLInputElement>) =>
-                                        setValues({ ...values, pass: e.target.value })
-                                    }
-                                    error={!!errors.pass}
-                                    helperText={errors.pass}
-                                />
-                            </Grid>
-                            <Grid container></Grid>
-                            <Grid item xs={12}>
-                                <Box display='flex' justifyContent='space-between'>
-                                        
-                                    <FormControlLabel control={<Checkbox defaultChecked />} label="Remember me" />
-                                    <Link href='/forgot-password' variant='body2' sx={{paddingTop: 1, color:'black', fontFamily: 'robot', fontWeight: 500,  textDecoration: 'none', fontSize: '14px'}}>
-                                        Forget Password
-                                    </Link>
-                                </Box>
-                            </Grid>
-                        </Grid>
-                        <Button
-                            type='submit'
-                            fullWidth
-                            variant='contained'
-                            sx={{ mt: 3, mb: 2, textDecoration: 'capitalize' }}
-                            size='medium'
-                        >
-                            <Stack spacing={1} direction='row' alignItems='center'>
-                                <span>Login</span>
-                                {loading && (
-                                    <CircularProgress color='inherit' size={18} thickness={4} />
-                                )}
-                            </Stack>
-                        </Button>
-                        {/* <Grid container justifyContent='flex-end'>
-                            <Grid item>
-                                <Link href='/signup' variant='body1'>
-                                    Don't have an account? Sign up
-                                </Link>
-                            </Grid>
-                        </Grid> */}
+                            <Button
+                                type='submit'
+                                fullWidth
+                                variant='contained'
+                                sx={{ mt: 3, mb: 2, textDecoration: 'capitalize' }}
+                                size='medium'
+                            >
+                                <Stack spacing={1} direction='row' alignItems='center'>
+                                    <span>Login</span>
+                                    {loading && (
+                                        <CircularProgress color='inherit' size={18} thickness={4} />
+                                    )}
+                                </Stack>
+                            </Button>
+                        </Box>
                     </Box>
                 </Box>
             </Box>
