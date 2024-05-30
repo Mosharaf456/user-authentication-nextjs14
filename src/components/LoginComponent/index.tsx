@@ -109,7 +109,7 @@ export default function LoginComponent() {
         // }
     };
 
-    const handleSubmit = async (event : React.FormEvent) => {
+    const handleSubmit = async (event : React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         console.log('values', values);
         const { valid, newErrors } = validateForm();
